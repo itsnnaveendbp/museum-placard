@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Museum Placard Template</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background-color: #f5f2ed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+        
+        .placard-container {
+            width: 100%;
+            max-width: 550px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        
+        .language-selector {
+            display: flex;
+            background-color: #8B4513;
+            padding: 10px 15px;
+            justify-content: space-between;
+        }
+        
+        .language-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 14px;
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 3px;
+            transition: background-color 0.3s;
+        }
+        
+        .language-btn:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .language-btn.active {
+            background-color: rgba(255, 255, 255, 0.3);
+            font-weight: bold;
+        }
+        
+        .placard {
+            background-color: #fff;
+            padding: 40px 35px;
+            position: relative;
+        }
+        
+        .placard::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: linear-gradient(90deg, #8B4513, #D2B48C, #8B4513);
+        }
+        
+        .title {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 25px;
+            color: #2c2c2c;
+            letter-spacing: 0.5px;
+        }
+        
+        .content {
+            font-size: 18px;
+            line-height: 1.7;
+            text-align: justify;
+            margin-bottom: 30px;
+            color: #444;
+        }
+        
+        .footer {
+            text-align: center;
+            font-style: italic;
+            font-size: 16px;
+            color: #666;
+            padding-top: 20px;
+            border-top: 1px solid #eaeaea;
+        }
+        
+        .accent {
+            font-weight: bold;
+            color: #8B4513;
+        }
+        
+        .language-content {
+            display: none;
+        }
+        
+        .language-content.active {
+            display: block;
+        }
+        
+        @media (max-width: 600px) {
+            .placard {
+                padding: 30px 25px;
+            }
+            
+            .title {
+                font-size: 24px;
+            }
+            
+            .content {
+                font-size: 16px;
+            }
+            
+            .language-selector {
+                flex-wrap: wrap;
+                gap: 5px;
+            }
+            
+            .language-btn {
+                font-size: 12px;
+                padding: 5px 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="placard-container">
+        <div class="language-selector">
+            <button class="language-btn active" data-lang="en">English</button>
+            <button class="language-btn" data-lang="es">Español</button>
+            <button class="language-btn" data-lang="fr">Français</button>
+            <button class="language-btn" data-lang="de">Deutsch</button>
+            <button class="language-btn" data-lang="hi">हिन्दी</button>
+            <button class="language-btn" data-lang="zh">中文</button>
+        </div>
+        
+        <div class="placard">
+            <!-- English Content -->
+            <div class="language-content active" id="en-content">
+                <h1 class="title">Sample Museum Exhibit</h1>
+                
+                <div class="content">
+                    <span class="accent">Sample test for museum placard</span>. This is a template that can be customized with actual museum content. Replace this text with information about your specific exhibit, artifact, or historical context.
+                </div>
+                
+                <div class="footer">
+                    Sample Museum, Location
+                </div>
+            </div>
+            
+            <!-- Spanish Content -->
+            <div class="language-content" id="es-content">
+                <h1 class="title">Exposición de Museo de Muestra</h1>
+                
+                <div class="content">
+                    <span class="accent">Prueba de muestra para placa de museo</span>. Esta es una plantilla que se puede personalizar con contenido real del museo. Reemplace este texto con información sobre su exposición específica, artefacto o contexto histórico.
+                </div>
+                
+                <div class="footer">
+                    Museo de Muestra, Ubicación
+                </div>
+            </div>
+            
+            <!-- French Content -->
+            <div class="language-content" id="fr-content">
+                <h1 class="title">Exposition de Musée Échantillon</h1>
+                
+                <div class="content">
+                    <span class="accent">Test d'échantillon pour plaque de musée</span>. Ceci est un modèle qui peut être personnalisé avec le contenu réel du musée. Remplacez ce texte par des informations sur votre exposition spécifique, artefact ou contexte historique.
+                </div>
+                
+                <div class="footer">
+                    Musée Échantillon, Localisation
+                </div>
+            </div>
+            
+            <!-- German Content -->
+            <div class="language-content" id="de-content">
+                <h1 class="title">Beispiel Museumsausstellung</h1>
+                
+                <div class="content">
+                    <span class="accent">Beispieltest für Museumsplakette</span>. Dies ist eine Vorlage, die mit tatsächlichen Museumsinhalten angepasst werden kann. Ersetzen Sie diesen Text durch Informationen zu Ihrer spezifischen Ausstellung, Ihrem Artefakt oder historischen Kontext.
+                </div>
+                
+                <div class="footer">
+                    Beispielmuseum, Standort
+                </div>
+            </div>
+            
+            <!-- Hindi Content -->
+            <div class="language-content" id="hi-content">
+                <h1 class="title">नमूना संग्रहालय प्रदर्शनी</h1>
+                
+                <div class="content">
+                    <span class="accent">संग्रहालय प्लेकार्ड के लिए नमूना परीक्षण</span>. यह एक टेम्पलेट है जिसे वास्तविक संग्रहालय सामग्री के साथ अनुकूलित किया जा सकता है। इस पाठ को अपनी विशिष्ट प्रदर्शनी, कलाकृति या ऐतिहासिक संदर्भ के बारे में जानकारी से बदलें।
+                </div>
+                
+                <div class="footer">
+                    नमूना संग्रहालय, स्थान
+                </div>
+            </div>
+            
+            <!-- Chinese Content -->
+            <div class="language-content" id="zh-content">
+                <h1 class="title">博物馆展览样本</h1>
+                
+                <div class="content">
+                    <span class="accent">博物馆展牌样本测试</span>. 这是一个可以使用实际博物馆内容进行自定义的模板。用有关您的特定展览、文物或历史背景的信息替换此文本。
+                </div>
+                
+                <div class="footer">
+                    样本博物馆，地点
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const languageButtons = document.querySelectorAll('.language-btn');
+            const languageContents = document.querySelectorAll('.language-content');
+            
+            languageButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const targetLang = this.getAttribute('data-lang');
+                    
+                    // Update active button
+                    languageButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Show selected language content
+                    languageContents.forEach(content => {
+                        content.classList.remove('active');
+                        if (content.id === `${targetLang}-content`) {
+                            content.classList.add('active');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

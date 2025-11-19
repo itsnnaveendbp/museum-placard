@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Museum Placard - Essanay Studio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background-color: #f5f2ed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+        
+        .placard-container {
+            width: 100%;
+            max-width: 550px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        
+        .language-selector {
+            display: flex;
+            background-color: #8B4513;
+            padding: 10px 15px;
+            justify-content: space-between;
+        }
+        
+        .language-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 14px;
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 3px;
+            transition: background-color 0.3s;
+        }
+        
+        .language-btn:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .language-btn.active {
+            background-color: rgba(255, 255, 255, 0.3);
+            font-weight: bold;
+        }
+        
+        .placard {
+            background-color: #fff;
+            padding: 40px 35px;
+            position: relative;
+        }
+        
+        .placard::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: linear-gradient(90deg, #8B4513, #D2B48C, #8B4513);
+        }
+        
+        .title {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 25px;
+            color: #2c2c2c;
+            letter-spacing: 0.5px;
+        }
+        
+        .content {
+            font-size: 18px;
+            line-height: 1.7;
+            text-align: justify;
+            margin-bottom: 30px;
+            color: #444;
+        }
+        
+        .footer {
+            text-align: center;
+            font-style: italic;
+            font-size: 16px;
+            color: #666;
+            padding-top: 20px;
+            border-top: 1px solid #eaeaea;
+        }
+        
+        .accent {
+            font-weight: bold;
+            color: #8B4513;
+        }
+        
+        .language-content {
+            display: none;
+        }
+        
+        .language-content.active {
+            display: block;
+        }
+        
+        @media (max-width: 600px) {
+            .placard {
+                padding: 30px 25px;
+            }
+            
+            .title {
+                font-size: 24px;
+            }
+            
+            .content {
+                font-size: 16px;
+            }
+            
+            .language-selector {
+                flex-wrap: wrap;
+                gap: 5px;
+            }
+            
+            .language-btn {
+                font-size: 12px;
+                padding: 5px 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="placard-container">
+        <div class="language-selector">
+            <button class="language-btn active" data-lang="en">English</button>
+            <button class="language-btn" data-lang="es">Español</button>
+            <button class="language-btn" data-lang="fr">Français</button>
+            <button class="language-btn" data-lang="de">Deutsch</button>
+            <button class="language-btn" data-lang="hi">हिन्दी</button>
+            <button class="language-btn" data-lang="zh">中文</button>
+        </div>
+        
+        <div class="placard">
+            <!-- English Content -->
+            <div class="language-content active" id="en-content">
+                <h1 class="title">The New Essanay Studio</h1>
+                
+                <div class="content">
+                    <span class="accent">George Spoor</span> (the "S" of Essanay) purchased the land for a new production facility on <span class="accent">November 30, 1912</span>, from Bird and Frank Mortimer. Construction began at once from plans drawn by San Jose architect <span class="accent">George W. Page</span>. By December, the glass-enclosed stage and western street front were finished.
+                </div>
+                
+                <div class="footer">
+                    Niles Essanay Silent Film Museum, California
+                </div>
+            </div>
+            
+            <!-- Spanish Content -->
+            <div class="language-content" id="es-content">
+                <h1 class="title">El Nuevo Estudio Essanay</h1>
+                
+                <div class="content">
+                    <span class="accent">George Spoor</span> (la "S" de Essanay) compró el terreno para una nueva instalación de producción el <span class="accent">30 de noviembre de 1912</span> a Bird y Frank Mortimer. La construcción comenzó de inmediato según los planos dibujados por el arquitecto de San José <span class="accent">George W. Page</span>. Para diciembre, el escenario acristalado y la fachada de la calle occidental estaban terminados.
+                </div>
+                
+                <div class="footer">
+                    Museo de Cine Mudo Essanay de Niles, California
+                </div>
+            </div>
+            
+            <!-- French Content -->
+            <div class="language-content" id="fr-content">
+                <h1 class="title">Le Nouveau Studio Essanay</h1>
+                
+                <div class="content">
+                    <span class="accent">George Spoor</span> (le « S » de Essanay) a acheté le terrain pour une nouvelle installation de production le <span class="accent">30 novembre 1912</span> à Bird et Frank Mortimer. La construction a commencé immédiatement selon les plans dessinés par l'architecte de San José <span class="accent">George W. Page</span>. En décembre, la scène vitrée et la façade de rue western étaient terminées.
+                </div>
+                
+                <div class="footer">
+                    Musée du Cinéma Muet Essanay de Niles, Californie
+                </div>
+            </div>
+            
+            <!-- German Content -->
+            <div class="language-content" id="de-content">
+                <h1 class="title">Das Neue Essanay Studio</h1>
+                
+                <div class="content">
+                    <span class="accent">George Spoor</span> (das "S" von Essanay) kaufte das Grundstück für eine neue Produktionseinrichtung am <span class="accent">30. November 1912</span> von Bird und Frank Mortimer. Der Bau begann sofort nach Plänen des San José Architekten <span class="accent">George W. Page</span>. Bis Dezember waren die verglaste Bühne und die Western-Straßenfront fertiggestellt.
+                </div>
+                
+                <div class="footer">
+                    Niles Essanay Stummfilm Museum, Kalifornien
+                </div>
+            </div>
+            
+            <!-- Hindi Content -->
+            <div class="language-content" id="hi-content">
+                <h1 class="title">नया एसाने स्टूडियो</h1>
+                
+                <div class="content">
+                    <span class="accent">जॉर्ज स्पूर</span> (एसाने का "एस") ने बर्ड और फ्रैंक मोर्टिमर से <span class="accent">30 नवंबर, 1912</span> को एक नई प्रोडक्शन सुविधा के लिए जमीन खरीदी। सैन जोस आर्किटेक्ट <span class="accent">जॉर्ज डब्ल्यू. पेज</span> द्वारा तैयार की गई योजनाओं से निर्माण तुरंत शुरू हो गया। दिसंबर तक, कांच से घिरा मंच और पश्चिमी सड़क का सामने वाला हिस्सा पूरा हो गया था।
+                </div>
+                
+                <div class="footer">
+                    नाइल्स एसाने साइलेंट फिल्म संग्रहालय, कैलिफोर्निया
+                </div>
+            </div>
+            
+            <!-- Chinese Content -->
+            <div class="language-content" id="zh-content">
+                <h1 class="title">新埃萨奈制片厂</h1>
+                
+                <div class="content">
+                    <span class="accent">乔治·斯普尔</span>（埃萨奈中的"S"）于<span class="accent">1912年11月30日</span>从伯德和弗兰克·莫蒂默手中购买了一块土地，用于建设新的制片设施。根据圣何塞建筑师<span class="accent">乔治·W·佩奇</span>绘制的图纸，建设立即开始。到12月，玻璃封闭的舞台和西部街道立面已经完工。
+                </div>
+                
+                <div class="footer">
+                    加利福尼亚州奈尔斯埃萨奈无声电影博物馆
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const languageButtons = document.querySelectorAll('.language-btn');
+            const languageContents = document.querySelectorAll('.language-content');
+            
+            languageButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const targetLang = this.getAttribute('data-lang');
+                    
+                    // Update active button
+                    languageButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Show selected language content
+                    languageContents.forEach(content => {
+                        content.classList.remove('active');
+                        if (content.id === `${targetLang}-content`) {
+                            content.classList.add('active');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
